@@ -5,62 +5,78 @@
 \section[Post Lab]
 {Part 4: Post Lab}
 \par
-\indent\textbf{1. - }
-{
+\indent\textbf{1. - 
 On the same graph, plot the Uncoded Bit Error Rate and Coded Bit Error Rate for the
 n-Repetition (3,1) and Hamming (7,4), and Golay (24,12) codes.
-\par
 }
-\textbf{n-Repetition (3,1)}
-% \begin{figure}[H]
-%    \centering
-%    \includegraphics[width=0.7\textwidth]{../lab_ss/WES268B_Lab5_Part3-2a_gray-coded.png}
-%    \caption{3.2.a - "Gray Coded" QPSK Bit Error Rates under AWGN}
-% \end{figure}
 \par
 
-\textbf{Hamming (7,4)}
-% \begin{figure}[H]
-%    \centering
-%    \includegraphics[width=0.7\textwidth]{../lab_ss/WES268B_Lab5_Part3-2a_gray-coded.png}
-%    \caption{3.2.a - "Gray Coded" QPSK Bit Error Rates under AWGN}
-% \end{figure}
-\par
-
-\textbf{Golay (24,12)}
-% \begin{figure}[H]
-%    \centering
-%    \includegraphics[width=0.7\textwidth]{../lab_ss/WES268B_Lab5_Part3-2a_gray-coded.png}
-%    \caption{3.2.a - "Gray Coded" QPSK Bit Error Rates under AWGN}
-% \end{figure}
+\begin{figure}[H]
+   \centering
+   \includegraphics[width=0.7\textwidth]{../lab_ss/postlab_1.png}
+   \caption{4.1 - Uncoded Bit Error Rate vs Coded Bit Error Rate}
+\end{figure}
 \par
 
 \textbf{Give an explanation for the cross-over point of the uncoded and coded ber curves.}
 \par
-\textbf{2. - }
 {
+    As we saw during the prelab, the coded BER can actually perform worse than uncoded for low SNRs.
+    This is because the act of coding intentionally introduces redundancy that can act as a source 
+    of error. When the errors are spread out across multiple bits and the channel is noisy, there is 
+    an increased chance of the decoder to receive an uncorrectable error pattern.
+}
+\par
+\textbf{2. - 
 On the same graph, plot the Uncoded Bit Error Rate and Coded Bit Error Rate for the
 LDPC code for range of values you used for \textit{Max Iterations}. Are there any changes in coding
 gain for different values of \textit{Max Iterations}?
 }
 \par
-
-\textbf{3. - }
+\begin{figure}[H]
+   \centering
+   \includegraphics[width=0.7\textwidth]{../lab_ss/postlab_2.png}
+   \caption{4.2 - Uncoded Bit Error Rate vs LDPC Bit Error Rate}
+\end{figure}
+\par
 {
+    We can see that, similar to the other coded protocols that we explored earlier, the coding
+    gain varies depending on the SNR. At low SNR (0-2dB), the uncoded BPSK actually performs better 
+    for the same reasons discussed earlier. However, at high SNR, the LDPC performs  
+    better than the uncoded BPSK, although the coding gain seems to plateau at very high SNR.
+}
+\par
+\textbf{3. - 
 On the same graph, plot the Uncoded Bit Error Rate for QPSK with both "gray" and "non
 gray" codes. Explain the difference between the two curves.
 }
 \par
-
-\textbf{4. - }
+\begin{figure}[H]
+   \centering
+   \includegraphics[width=0.7\textwidth]{../lab_ss/postlab_3.png}
+   \caption{4.3 - Gray-coded Bit Error Rate vs Non-Gray coded Bit Error Rate}
+\end{figure}
+\par
 {
+    When we use Gray-coding, we are able to minimize the number of bit errors since we 
+    know that each symbol is separated by exactly 1 bit. For non-Gray coding, each symbol 
+    may differ in distance from the constellation points. Thus, each symbol error can cause multiple 
+    bits to be wrong, even if the symbol error rate stays the same.
+
+}
+
+\textbf{4. - 
 What is the measured coding gain for the error correction codes from parts 1? Which error
 correction code is better? Why?
 }
 \par
-
-\textbf{5. - }
 {
+    We can obtain the measured coding gain by measuring the vertical distance between each of the BER 
+    curves. At high SNRs, Golay outperforms all of the codes because of its ability to correct 
+    up to 3 errors per codeword. 
+}
+
+\textbf{5. - 
 Compare the measured coding gains from part 1 to the expression for asymptotic coding gain
 $G$, where
 $$G \approx R_c(t+1)$$
@@ -68,12 +84,19 @@ $$t=\text{floor}(\frac{d_{min}-1}{2})$$
 Do they match? Why or why not?
 }
 \par
-
-\textbf{6. - }
 {
+    No, the asymptotic coding gain G does not match our results because we are only measuring at 
+    low to moderate SNR and not in the asymptotic region (high SNR). 
+}
+
+\textbf{6. - 
 What are the consequences of
-using an \textunderscore{even} value of $n$ for an n-repetition (n,1) code?
+using an even value of $n$ for an n-repetition (n,1) code?
 }
 \par
+{
+    If we have an even value for an n-repetition code, the decoder is faced with the possibility 
+    of having a tie and cannot decipher if a 1 or a 0 was transmitted. When n is odd, this never happens.
+}
 
 \end{document}

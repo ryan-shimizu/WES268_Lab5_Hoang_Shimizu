@@ -6,20 +6,27 @@
 \section[Additional Questions]
 {Part 5: Additional Questions}
 \par
-\textbf{1. - }
-{
-Consider the 8-PSK constellation given by symbol values below:
+\textbf{1. -
+Consider the 8-PSK constellation given by symbol values below: }
 \begin{figure}[H]
    \centering
    \includegraphics[width=0.7\textwidth]{../lab_ss/Figure3_1.png}
 \end{figure}
+\par
+\textbf{
 Can you construct a gray-coded symbol mapper table for this constellation? Justify your
 answer (i.e. if it's possible, create the symbol mapping table, otherwise explain why it's
 not possible).
-\par
 }
-\textbf{2. - }
+\par
+
 {
+   Yes, it is possible to create a Gray-coded symbol mapper table for this
+   constellation because it is uniformly spaced with a phase interval of $\pi/4$ and has exactly 3 nearest neighbors (one for each possible bit flip).
+   We can use a 3-bit mapping since we have $2^3$ symbols:
+   $$000 \rightarrow 001 \rightarrow 011 \rightarrow 010 \rightarrow 110 \rightarrow 111 \rightarrow 101 \rightarrow 100$$
+}
+\textbf{2. - 
 Consider the 8-QAM constellation given by symbol values below:
 \begin{figure}[H]
    \centering
@@ -28,6 +35,13 @@ Consider the 8-QAM constellation given by symbol values below:
 Can you construct a gray-coded symbol mapper table for this constellation? Justify your
 answer (i.e. if it's possible, create the symbol mapping table, otherwise explain why it's
 not possible)
+}
+\par
+
+{
+   No, it is not possible to create a Gray-coded symbol mapper table for this constellation.
+   In the above configuration, the symbols in the center of the constellation have 
+   4 nearest neighbors, which is impossible to map with only 3 bits to work with.
 }
 
 
